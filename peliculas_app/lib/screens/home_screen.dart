@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas_app/providers/movies_provider.dart';
 import 'package:peliculas_app/widgets/widgets.dart';
+
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     
+    final moviesProvider = Provider.of<MoviesProvider>(context/* , listen: true */); // LISTEN ES PARA QUE SE REDIBUJE POR SI HAY CAMBIOS //
+
     return Scaffold(
 
       appBar: AppBar(
@@ -27,10 +32,13 @@ class HomeScreen extends StatelessWidget {
           children: [
       
             // TARJETAS PRINCIPALES //
-            CardSwiper(),
+            CardSwiper( movies: moviesProvider.onDisplayMovies ),
       
             // SLIDER DE PELICULAS //
-            MovieSlider(),
+            MovieSlider(
+              movies: moviesProvider.popularMovies,
+              title: 'Populares'
+            ),
       
           ],
       
