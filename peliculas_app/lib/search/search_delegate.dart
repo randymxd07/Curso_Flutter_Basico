@@ -26,7 +26,7 @@ class MovieSearchDelegate extends SearchDelegate {
     return IconButton(
       icon: Icon(Icons.arrow_back),
       onPressed: () => close(context, null), 
-    )
+    );
   }
 
   @override
