@@ -7,7 +7,7 @@ class CardSwiper extends StatelessWidget {
   final List<Movie> movies;
 
   const CardSwiper({
-    super.key, 
+    key, 
     required this.movies
   });
 
